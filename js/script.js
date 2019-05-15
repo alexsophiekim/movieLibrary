@@ -132,9 +132,10 @@ for (var i = 0; i < movies.length; i++) {
 
 
   var movieCard = '<div class="col-12 col-sm-6 col-md-3 mb-3 text-center ">';
-    ////// way#1 movieCard += '<div class="movieThumb card '+genreClass+' " onclick="showMoreMovie();">';
-    movieCard += '<div class="movieThumb movieThumb2 card '+genreClass+' ">';
-
+    /////// way#1
+    movieCard += '<div class="movieThumb card '+genreClass+' " onclick="showMoreMovie('+movie.id+');">';
+    // movieCard += '<div class="movieThumb movieThumb2 card '+genreClass+' " data-id="'+movie.id+'" data-name="'+movie.title+'">';
+    //////// adding data- (data attribute) - adding on something else not on the screen.
       movieCard += '<img src="img/'+movie.poster+'" class="card-img-top" alt="">';
         movieCard+='<div class="card-body">';
           movieCard+= '<h5 class="card-title">'+movie.title+'</h5>';
@@ -180,8 +181,32 @@ for (var i = 0; i < movies.length; i++) {
 }
 
 
-function showMoreMovie(){
+function showMoreMovie(movieNumber){
+  var singleMovie;
   // console.log("You have clicked on a movie");
+  console.log(movieNumber);
+  for (var i = 0; i < movies.length; i++) {
+
+    if (movies[i].id === movieNumber) {
+      console.log(movies[i]);
+      singleMovie = movies[i];
+      break;
+
+      //////break; - only use inside of loop, if statement. jumps out of a loop! make the loop stop earlier.
+    }
+  }
+
+  console.log(singleMovie);
+  document.getElementById('posterImg').src="img/"+singleMovie.poster;
+  document.getElementById('movieTitle').innerText = singleMovie.title;
+  document.getElementById('movieYear').innerText = singleMovie.year;
+  document.getElementById('movieDirectors').innerHTML += '<li>'+singleMovie.director+'</li>';
+  document.getElementById('movieBio').innerText = singleMovie.bio;
+  document.getElementById('movieLength').innerText = singleMovie.length;
+  document.getElementById('movieGenre').innerHTML =
+
+
+
 
   ////////////////// Q.javascript how to change div style? googling!  find answer from stackoverflow
    document.getElementById("moviePopup").style.display="flex";
@@ -191,14 +216,17 @@ function showMoreMovie(){
 
 ////// caution ::::: getElementsByClassName - Elements (all Elements) also, movieThumbs is prevent both working other movieThumb;
 var movieThumbnails = document.getElementsByClassName('movieThumb2');
-// console.log(movieThumbnails);
 for (var i = 0; i < movieThumbnails.length; i++) {
   // console.log(movieThumbnails[i]);
-    movieThumbnails[i].onclick = showMoreMovie;
-   //  movieThumbnails[i].onclick = function(){
-   //    showMoreMovie();
-   //  }
-   //
+  // console.log(movieThumbnails[i].dataset.id);
+
+  // movieThumbnails[i].onclick = showMoreMovie;
+
+    movieThumbnails[i].onclick = function(){
+      var id = parseInt(this.dataset.id);
+      /////////////(this.dataset.id); === (this.dataset.['id']);
+      showMoreMovie(id);
+    }
 }
 
 
