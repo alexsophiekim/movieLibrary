@@ -6,7 +6,7 @@ var movies = [
     year: 2018,
     director: ["Anthony Russo","Joe Russo"],
     bio: "The Avengers and their allies must be willing to sacrifice all in an attempt to defeat the powerful Thanos before his blitz of devastation and ruin puts an end to the universe.",
-    length: 149,
+    movieLength: 149,
     poster:"infinityWar.jpg",
     genre: ["fantasy", "sci-fi"]
   },
@@ -14,9 +14,9 @@ var movies = [
     id:2,
     title: "Get Out",
     year: 2017,
-    director: "Jordan Peele",
+    director: ["Jordan Peele"],
     bio: "A young African-American visits his white girlfriend's parents for the weekend, where his simmering uneasiness about their reception of him eventually reaches a boiling point.",
-    length: 104,
+    movieLength: 104,
     poster:"getout.jpg",
     genre: ["mystery", "thriller"]
   },
@@ -24,9 +24,9 @@ var movies = [
     id:3,
     title: "The Notebook",
     year: 2004,
-    director: "Nick Cassavetes",
+    director: ["Nick Cassavetes"],
     bio: "A poor yet passionate young man falls in love with a rich young woman, giving her a sense of freedom, but they are soon separated because of their social differences.",
-    length: 123,
+    movieLength: 123,
     poster: "notebook.jpg",
     genre: ["drama", "romance"]
   },
@@ -34,9 +34,9 @@ var movies = [
     id:4,
     title: "Searching",
     year: 2018,
-    director: "Aneesh Chaganty",
+    director: ["Aneesh Chaganty"],
     bio: "After his 16-year-old daughter goes missing, a desperate father breaks into her laptop to look for clues to find her.",
-    length: 102,
+    movieLength: 102,
     poster: "searching.jpg",
     genre: ["mystery", "thriller"]
   },
@@ -44,9 +44,9 @@ var movies = [
     id:5,
     title: "La La Land",
     year: 2016,
-    director:"Damien Chazelle" ,
+    director:["Damien Chazelle"],
     bio: "While navigating their careers in Los Angeles, a pianist and an actress fall in love while attempting to reconcile their aspirations for the future.",
-    length: 128,
+    movieLength: 128,
     poster: "lalaland.jpg",
     genre: ["comedy", "drama","music"]
   },
@@ -54,11 +54,11 @@ var movies = [
     id:6,
     title: "Coco",
     year: 2017,
-    director:[" Lee Unkrich", "Adrian Molina"] ,
+    director:["Lee Unkrich", "Adrian Molina"] ,
     bio: "Aspiring musician Miguel, confronted with his family's ancestral ban on music, enters the Land of the Dead to find his great-great-grandfather, a legendary singer.",
     length: 105,
     poster: "coco.jpg",
-    genre: ["fantasy", "mystery"]
+    genre: ["fantasy", "mystery","animation"]
   },
   {
     id:7,
@@ -66,17 +66,57 @@ var movies = [
     year: 2019,
     director: ["Anthony Russo","Joe Russo"],
     bio: "After the devastating events of Avengers: Infinity War (2018), the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to undo Thanos' actions and restore order to the universe.",
-    length: 181,
+    movieLength: 181,
     poster:"endgame.jpg",
-    genre: ["action", "adventure", "sci-fi"]
+    genre: ["sci-fi","action", "adventure"]
   },
   {
     id:8,
     title: "How to Train Your Dragon: The Hidden World",
     year: 2019,
-    director: "Dean DeBlois",
+    director: ["Dean DeBlois"],
     bio: "When Hiccup discovers Toothless isn't the only Night Fury, he must seek 'The Hidden World', a secret Dragon Utopia before a hired tyrant named Grimmel finds it first.",
-    length: 104,
+    movieLength: 104,
+    poster:"dragon.jpg",
+    genre: ["animation", "action", "adventure"]
+  },
+  {
+    id:9,
+    title: "How to Train Your Dragon: The Hidden World",
+    year: 2019,
+    director: ["Dean DeBlois"],
+    bio: "When Hiccup discovers Toothless isn't the only Night Fury, he must seek 'The Hidden World', a secret Dragon Utopia before a hired tyrant named Grimmel finds it first.",
+    movieLength: 104,
+    poster:"dragon.jpg",
+    genre: ["animation", "action", "adventure"]
+  },
+  {
+    id:10,
+    title: "How to Train Your Dragon: The Hidden World",
+    year: 2019,
+    director: ["Dean DeBlois"],
+    bio: "When Hiccup discovers Toothless isn't the only Night Fury, he must seek 'The Hidden World', a secret Dragon Utopia before a hired tyrant named Grimmel finds it first.",
+    movieLength: 104,
+    poster:"dragon.jpg",
+    genre: ["animation", "action", "adventure"]
+  },
+  {
+    id:11,
+    title: "How to Train Your Dragon: The Hidden World",
+    year: 2019,
+    director: ["Dean DeBlois"],
+    bio: "When Hiccup discovers Toothless isn't the only Night Fury, he must seek 'The Hidden World', a secret Dragon Utopia before a hired tyrant named Grimmel finds it first.",
+    movieLength: 104,
+    poster:"dragon.jpg",
+    genre: ["animation", "action", "adventure"]
+  },
+  {
+    id:12,
+    title: "How to Train Your Dragon: The Hidden World",
+    year: 2019,
+    director: ["Dean DeBlois"],
+    bio: "When Hiccup discovers Toothless isn't the only Night Fury, he must seek 'The Hidden World', a secret Dragon Utopia before a hired tyrant named Grimmel finds it first.",
+    movieLength: 104,
     poster:"dragon.jpg",
     genre: ["animation", "action", "adventure"]
   }
@@ -109,37 +149,37 @@ for (var i = 0; i < movies.length; i++) {
 
 
   //////////// -------- way#2 kind of make a one long string for making smaller code; giant string version.
-  var genreClass ='';
-  var text ='';
-  console.log(movie.genre[0]);
-  if (movie.genre[0] === 'fantasy') {
-      genreClass = 'border-primary';
-      text = 'Fantasy';
-  } else if (movie.genre[0] === 'drama') {
-      genreClass ='border-success';
-      text = 'Drama';
-  } else if (movie.genre[0] === 'mystery') {
-      genreClass = 'border-danger';
-      text = 'Mystery';
-  } else if (movie.genre[0]==='comedy') {
-      genreClass ='border-warning';
-      text = 'Comedy';
-  } else{
-    genreClass='border-dark';
-    text = 'Other';
-  }
+  var genreClass = getGenreColour(movie.genre[0]);
+  // var text ='';
+  // console.log(movie.genre[0]);
+  // if (movie.genre[0] === 'fantasy') {
+  //     genreClass = 'border-primary';
+  //     text = 'Fantasy';
+  // } else if (movie.genre[0] === 'drama') {
+  //     genreClass ='border-success';
+  //     text = 'Drama';
+  // } else if (movie.genre[0] === 'mystery') {
+  //     genreClass = 'border-danger';
+  //     text = 'Mystery';
+  // } else if (movie.genre[0]==='comedy') {
+  //     genreClass ='border-warning';
+  //     text = 'Comedy';
+  // } else{
+  //   genreClass='border-dark';
+  //   text = 'Other';
+  // }
   /////////////// sorting genre as border-colour, also if I want to add icon or tag thing I can do it inside of if statement .
 
 
   var movieCard = '<div class="col-12 col-sm-6 col-md-3 mb-3 text-center ">';
     /////// way#1
-    movieCard += '<div class="movieThumb card '+genreClass+' " onclick="showMoreMovie('+movie.id+');">';
+    movieCard += '<div class="movieThumb card h-100 border-'+genreClass+' " onclick="showMoreMovie('+movie.id+');">';
     // movieCard += '<div class="movieThumb movieThumb2 card '+genreClass+' " data-id="'+movie.id+'" data-name="'+movie.title+'">';
     //////// adding data- (data attribute) - adding on something else not on the screen.
       movieCard += '<img src="img/'+movie.poster+'" class="card-img-top" alt="">';
         movieCard+='<div class="card-body">';
           movieCard+= '<h5 class="card-title">'+movie.title+'</h5>';
-          movieCard+= '<p>'+text+'</p>';
+          // movieCard+= '<p>'+text+'</p>';
         movieCard+= '</div>';
     movieCard += '</div>';
   movieCard +='</div>';
@@ -191,7 +231,6 @@ function showMoreMovie(movieNumber){
       console.log(movies[i]);
       singleMovie = movies[i];
       break;
-
       //////break; - only use inside of loop, if statement. jumps out of a loop! make the loop stop earlier.
     }
   }
@@ -200,11 +239,31 @@ function showMoreMovie(movieNumber){
   document.getElementById('posterImg').src="img/"+singleMovie.poster;
   document.getElementById('movieTitle').innerText = singleMovie.title;
   document.getElementById('movieYear').innerText = singleMovie.year;
-  document.getElementById('movieDirectors').innerHTML += '<li>'+singleMovie.director+'</li>';
+  document.getElementById('movieDirectors').innerHTML ='';
+  //////////// - director is array! need looping!
+  for (var i = 0; i < singleMovie.director.length; i++) {
+    console.log(singleMovie.director[i]);
+    document.getElementById('movieDirectors').innerHTML += '<li class ="list-inline-item">'+singleMovie.director[i]+'</li>';
+  }
   document.getElementById('movieBio').innerText = singleMovie.bio;
-  document.getElementById('movieLength').innerText = singleMovie.length;
-  document.getElementById('movieGenre').innerHTML =
-
+  document.getElementById('movieLength').innerText = singleMovie.movieLength;
+  document.getElementById('movieGenre').innerHTML ='';
+  var genreColour;
+  for (var i = 0; i < singleMovie.genre.length; i++) {
+    var genreColour = getGenreColour(singleMovie.genre[i]);
+  //   // if (singleMovie.genre[i]=== 'mystery') {
+  //   //     genreColour = 'badge-primary';
+  //   // } else if (singleMovie.genre[i]=== 'fantasy') {
+  //   //     genreColour='badge-secondary';
+  //   // } else if (singleMovie.genre[i]==='drama') {
+  //   //     genreColour='badge-warning';
+  //   // } else if (singleMovie.genre[i]==='adventure') {
+  //   //     genreColour='badge-info';
+  //   // } else {
+  //   //   genreColour='badge-dark';
+  //   // }
+    document.getElementById('movieGenre').innerHTML += '<span class ="badge badge-'+genreColour+' mr-1">'+singleMovie.genre[i]+'</span>';
+  }
 
 
 
@@ -235,3 +294,25 @@ document.getElementById('close').onclick = function(){
      document.getElementById("moviePopup").style.display="none";
      document.body.style.overflow = "scroll";
   }
+
+
+  // ///////////////// -Q) Write 1 function which will give us the Genre colours needed to use for the badges,
+  // /////////////////      borders and anythihg else we might want to use those colour names for in the future.
+
+function getGenreColour(genre){
+  if (genre === 'fantasy') {
+      return 'primary';
+  } else if (genre === 'drama') {
+      return 'success';
+  } else if (genre === 'mystery') {
+      return 'danger';
+  } else if (genre ==='comedy') {
+      return 'warning';
+  } else if (genre === 'sci-fi') {
+      return 'info'
+  } else if (genre === 'animation') {
+      return 'secondary'
+  } else{
+  return 'dark';
+  }
+}
