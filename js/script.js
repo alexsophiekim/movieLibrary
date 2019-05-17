@@ -82,43 +82,43 @@ var movies = [
   },
   {
     id:9,
-    title: "How to Train Your Dragon: The Hidden World",
-    year: 2019,
-    director: ["Dean DeBlois"],
-    bio: "When Hiccup discovers Toothless isn't the only Night Fury, he must seek 'The Hidden World', a secret Dragon Utopia before a hired tyrant named Grimmel finds it first.",
-    movieLength: 104,
-    poster:"dragon.jpg",
-    genre: ["animation", "action", "adventure"]
+    title: "Amy",
+    year: 2015,
+    director: ["Asif Kapadia"],
+    bio: "Archival footage and personal testimonials present an intimate portrait of the life and career of British singer/songwriter Amy Winehouse.",
+    movieLength: 128,
+    poster:"amy.jpg",
+    genre: ["music", "biography", "documentary "]
   },
   {
     id:10,
-    title: "How to Train Your Dragon: The Hidden World",
-    year: 2019,
-    director: ["Dean DeBlois"],
-    bio: "When Hiccup discovers Toothless isn't the only Night Fury, he must seek 'The Hidden World', a secret Dragon Utopia before a hired tyrant named Grimmel finds it first.",
-    movieLength: 104,
-    poster:"dragon.jpg",
-    genre: ["animation", "action", "adventure"]
+    title: "Interstellar",
+    year: 2014,
+    director: ["Christopher Nolan"],
+    bio: "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
+    movieLength: 169,
+    poster:"interstellar.jpg",
+    genre: ["adventure", "drama", "sci-fi"]
   },
   {
     id:11,
-    title: "How to Train Your Dragon: The Hidden World",
-    year: 2019,
-    director: ["Dean DeBlois"],
-    bio: "When Hiccup discovers Toothless isn't the only Night Fury, he must seek 'The Hidden World', a secret Dragon Utopia before a hired tyrant named Grimmel finds it first.",
-    movieLength: 104,
-    poster:"dragon.jpg",
-    genre: ["animation", "action", "adventure"]
+    title: "Venom",
+    year: 2018,
+    director: ["Ruben Fleischer"],
+    bio: "A failed reporter is bonded to an alien entity, one of many symbiotes who have invaded Earth. But the being takes a liking to Earth and decides to protect it.",
+    movieLength: 112,
+    poster:"venom.jpg",
+    genre: ["thriller", "action", "sci-fi"]
   },
   {
     id:12,
-    title: "How to Train Your Dragon: The Hidden World",
-    year: 2019,
-    director: ["Dean DeBlois"],
-    bio: "When Hiccup discovers Toothless isn't the only Night Fury, he must seek 'The Hidden World', a secret Dragon Utopia before a hired tyrant named Grimmel finds it first.",
-    movieLength: 104,
-    poster:"dragon.jpg",
-    genre: ["animation", "action", "adventure"]
+    title: "The Hangover part 3",
+    year: 2013,
+    director: ["Todd Phillips"],
+    bio: "When one of their own is kidnapped by an angry gangster, the Wolf Pack must track down Mr. Chow, who has escaped from prison and is on the run.",
+    movieLength: 100,
+    poster:"hang3.jpg",
+    genre: ["adventure", "crime", "comedy"]
   }
 ]
 console.log(movies);
