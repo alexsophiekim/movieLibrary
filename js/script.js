@@ -121,7 +121,7 @@ var movies = [
     genre: ["adventure", "crime", "comedy"]
   }
 ]
-console.log(movies);
+
 
 ////// under var moviesList is for making a variable as whole write on the page///
 var moivesList = document.getElementById('moivesList');
@@ -185,7 +185,6 @@ for (var i = 0; i < movies.length; i++) {
   movieCard +='</div>';
   ///////////////  following bootstrap card source : card >img > card-body > card-title > card -text>
 
-  console.log(movieCard);
   moviesList.innerHTML += movieCard;
 
   //////////// -------- way#3 create variable but exactly same result with way#2
