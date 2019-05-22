@@ -122,15 +122,22 @@ var movies = [
 ]
 
 
-var maxNumberOnScreen = 8;
+var maxNumberOnScreen = 4;
 var numberOfPages = Math.ceil(movies.length / maxNumberOnScreen);
 
 if (numberOfPages >1) {
   var pagination = document.getElementById('paginationMovies');
   for (var i = 0; i < numberOfPages; i++) {
-    pagination.innerHTML +='<li class="page-item"><a class="page-link" href="#">'+(i+1)+'</a></li>'
+    pagination.innerHTML +='<li class="page-item"><a class="page-link" href="#" onclick="clickOnPagination('+(i+1)+');">'+(i+1)+'</a></li>';
   }
 }
+
+function clickOnPagination(num){
+  console.log("You clicked on "+num+"page");
+
+////// ================================ * Now I am here! I need to solve 4 cards per page! *
+}
+
 if (maxNumberOnScreen > movies.length) {
   // console.log("There are not enough movies tin the database to fil the entire screen.")
   showMovieThumbnails(0,movies.length);
@@ -139,9 +146,14 @@ if (maxNumberOnScreen > movies.length) {
   showMovieThumbnails(0,maxNumberOnScreen);
 }
 
+function pageNumber(start, end){
+  for (var i = 0; i < movies[i]; i++) {
+
+  }
+}
+
 function showMovieThumbnails(start, end){
-    console.log(start);
-    console.log(end);
+
     for (var i = start; i < end; i++) {
       var movie =movies[i];
 
