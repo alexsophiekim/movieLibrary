@@ -121,9 +121,9 @@ var movies = [
   }
 ]
 
-
 var maxNumberOnScreen = 4;
 var numberOfPages = Math.ceil(movies.length / maxNumberOnScreen);
+var currentTab = 'Movies';
 
 if (numberOfPages >1) {
   var pagination = document.getElementById('paginationMovies');
@@ -133,9 +133,15 @@ if (numberOfPages >1) {
 }
 
 function clickOnPagination(num){
-  console.log("You clicked on "+num+"page");
+  // console.log("You clicked on "+num+"page");
+  var max = num * maxNumberOnScreen;
+  var min = max - maxNumberOnScreen;
 
-////// ================================ * Now I am here! I need to solve 4 cards per page! *
+  if (max > movies.length) {
+    max = movies.length;
+  }
+
+  showMovieThumbnails(min,max);
 }
 
 if (maxNumberOnScreen > movies.length) {
@@ -148,12 +154,11 @@ if (maxNumberOnScreen > movies.length) {
 
 function pageNumber(start, end){
   for (var i = 0; i < movies[i]; i++) {
-
   }
 }
 
 function showMovieThumbnails(start, end){
-
+  document.getElementById('moviesList').innerHTML='';
     for (var i = start; i < end; i++) {
       var movie =movies[i];
 
@@ -168,4 +173,107 @@ function showMovieThumbnails(start, end){
 
       document.getElementById('moviesList').innerHTML+=movieCard;
     }
+///////////////// remember ordering!
+    var movieThumbnails = document.getElementsByClassName('movieThumb2');
+    for (var i = 0; i < movieThumbnails.length; i++) {
+        movieThumbnails[i].onclick = function(){
+          var id = parseInt(this.dataset.id);
+          showMoreMovie(id);
+        }
+    }
+}
+
+function showMoreMovie(movieNumber){
+  var singleMovie;
+  for (var i = 0; i < movies.length; i++) {
+
+    if (movies[i].id === movieNumber) {
+      singleMovie = movies[i];
+      break;
+    }
+  }
+
+  console.log(singleMovie);
+  document.getElementById('posterImg').src="img/"+singleMovie.poster;
+  document.getElementById('movieTitle').innerText = singleMovie.title;
+  document.getElementById('movieYear').innerText = singleMovie.year;
+  document.getElementById('movieDirectors').innerHTML ='';
+  for (var i = 0; i < singleMovie.director.length; i++) {
+    console.log(singleMovie.director[i]);
+    document.getElementById('movieDirectors').innerHTML += '<li class ="list-inline-item">'+singleMovie.director[i]+'</li>';
+  }
+  document.getElementById('movieBio').innerText = singleMovie.bio;
+  document.getElementById('movieLength').innerText = singleMovie.movieLength;
+  document.getElementById('movieGenre').innerHTML ='';
+  var genreColour;
+  for (var i = 0; i < singleMovie.genre.length; i++) {
+    var genreColour = getGenreColour(singleMovie.genre[i]);
+    document.getElementById('movieGenre').innerHTML += '<span class ="badge badge-'+genreColour+' mr-1">'+singleMovie.genre[i]+'</span>';
+  }
+
+   document.getElementById("moviePopup").style.display="flex";
+   document.body.style.overflow = "hidden";
+}
+
+function getGenreColour(genre){
+  if (genre === 'fantasy') {
+      return 'primary';
+  } else if (genre === 'drama') {
+      return 'success';
+  } else if (genre === 'mystery') {
+      return 'danger';
+  } else if (genre ==='comedy') {
+      return 'warning';
+  } else if (genre === 'sci-fi') {
+      return 'info'
+  } else if (genre === 'animation') {
+      return 'secondary'
+  } else{
+  return 'dark';
+  }
+}
+
+
+document.getElementById('close').onclick = function(){
+     document.getElementById("moviePopup").style.display="none";
+     document.body.style.overflow = "scroll";
+  }
+
+var pageTabs = document.getElementsByClassName('page-tab');
+for (var i = 0; i < pageTabs.length; i++) {
+  pageTabs[i].onclick = function(){
+    for (var j = 0; j < pageTabs.length; j++) {
+      if (pageTabs[j].classList.contains('active')) {
+          pageTabs[j].classList.remove('active');
+          break;
+      }
+    }
+    if (!this.classList.contains('active')) {
+      this.classList.add('active');
+    }
+    changeTab(this.innerText);
+
+    // console.log(this.classList);
+    // this.classList.add('newClass','secondNewClass');
+    // console.log(this.classList.item(1));
+    ///// exactly same thing! console.log(this.classList[1]); === console.log(this.classList[1]);
+    // this.classList.remove('active');
+    // this.classList.toggle('active');
+
+  };
+}
+
+function changeTab(tabName){
+  if (currentTab === tabName) {
+      console.log("You are still on the same page");
+  } else {
+    currentTab = tabName;
+    console.log("Change to the " +tabName+" page");
+
+
+
+      //// All our code needed to change the page
+
+
+  }
 }
