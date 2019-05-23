@@ -274,6 +274,7 @@ function changeTab(tabName){
     } else if (tabName === 'Movies') {
       pageContainer.innerHTML='<div id="moviesList" class="row"></div>';
       pageContainer.innerHTML+='<div class="row"><div class="col"><nav><ul id="paginationMovies" class="pagination justify-content-end"></ul></div></div>';
+      pageContainer.innerHTML+='<div class ="row"><div class="col"><div class="dropdown" id="dropdownCards"><a class="btn btn-secondary dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cards on screen</a></div></div></div>'
       showMovies();
     }
   }

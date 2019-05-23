@@ -16,6 +16,16 @@
           <h1 class="display-3 text-center">Movies Library</h1>
         </div>
       </div>
+
+      <div class="row">
+        <div class="col text-right mb-4">
+          <button type="button" class="btn btn-primary btn-sm ">year</button>
+          <button type="button" class="btn btn-secondary btn-sm ">genre</button>
+          <button type="button" class="btn btn-secondary btn-sm ">movieLength</button>
+          <button type="button" class="btn btn-secondary btn-sm ">title</button>
+        </div>
+      </div>
+
       <div class="row md-4">
         <div class="col">
           <ul class="nav nav-tabs nav-justified">
@@ -32,6 +42,20 @@
       <div id="pageContainer">
         <div id="moviesList" class="row"></div>
         <div class="row">
+          <div class="col">
+            <div class="dropdown" id="dropdownCards">
+              <a class="btn btn-secondary dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Cards On Screen
+              </a>
+
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="#">4 Cards</a>
+                <a class="dropdown-item" href="#">8 Cards</a>
+                <a class="dropdown-item" href="#">12 Cards</a>
+                <a class="dropdown-item" href="#">16 Cards</a>
+              </div>
+            </div>
+          </div>
             <div class="col">
                 <nav>
                      <ul id="paginationMovies" class="pagination justify-content-end"></ul>
