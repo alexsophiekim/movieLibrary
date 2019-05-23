@@ -120,17 +120,25 @@ var movies = [
     genre: ["adventure", "crime", "comedy"]
   }
 ]
-
 var maxNumberOnScreen = 4;
-var numberOfPages = Math.ceil(movies.length / maxNumberOnScreen);
 var currentTab = 'Movies';
+var pageContainer=document.getElementById('pageContainer');
 
-if (numberOfPages >1) {
-  var pagination = document.getElementById('paginationMovies');
-  for (var i = 0; i < numberOfPages; i++) {
-    pagination.innerHTML +='<li class="page-item"><a class="page-link" href="#" onclick="clickOnPagination('+(i+1)+');">'+(i+1)+'</a></li>';
+function showMovies(){
+  var numberOfPages = Math.ceil(movies.length / maxNumberOnScreen);
+  if (numberOfPages >1) {
+    var pagination = document.getElementById('paginationMovies');
+    for (var i = 0; i < numberOfPages; i++) {
+      pagination.innerHTML +='<li class="page-item"><a class="page-link" href="#" onclick="clickOnPagination('+(i+1)+');">'+(i+1)+'</a></li>';
+    }
+  }
+  if (maxNumberOnScreen > movies.length) {
+    showMovieThumbnails(0,movies.length);
+  } else {
+    showMovieThumbnails(0,maxNumberOnScreen);
   }
 }
+showMovies();
 
 function clickOnPagination(num){
   // console.log("You clicked on "+num+"page");
@@ -142,14 +150,6 @@ function clickOnPagination(num){
   }
 
   showMovieThumbnails(min,max);
-}
-
-if (maxNumberOnScreen > movies.length) {
-  // console.log("There are not enough movies tin the database to fil the entire screen.")
-  showMovieThumbnails(0,movies.length);
-} else {
-  // console.log("There is more movies than the max on screen.")
-  showMovieThumbnails(0,maxNumberOnScreen);
 }
 
 function pageNumber(start, end){
@@ -268,12 +268,19 @@ function changeTab(tabName){
       console.log("You are still on the same page");
   } else {
     currentTab = tabName;
-    console.log("Change to the " +tabName+" page");
-
-
-
-      //// All our code needed to change the page
-
-
+    if (tabName === 'Director') {
+        pageContainer.innerHTML = '';
+      showDirctor();
+    } else if (tabName === 'Movies') {
+      pageContainer.innerHTML='<div id="moviesList" class="row"></div>';
+      pageContainer.innerHTML+='<div class="row"><div class="col"><nav><ul id="paginationMovies" class="pagination justify-content-end"></ul></div></div>';
+      showMovies();
+    }
   }
+}
+
+
+function showDirctor(){
+  console.log("show Director");
+  pageContainer.innerHTML='<div class="row"><div class="col"><h2 class="display-4">Director</h2></div></div>';
 }
